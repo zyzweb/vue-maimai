@@ -299,7 +299,7 @@ export default {
     },
     // 下单操作
     goToOrder(){
-        this.$refs.orderRef.validate((valid) => {
+        this.$refs.orderRef.validate((valid) => { //点击下单操作首先会有一个校验过程
           if (!valid) {
             console.log('error submit!!');
             return 
@@ -308,7 +308,7 @@ export default {
           this.$axios.post('site/validate/order/setorder',this.order).then(response=>{
               if(response.data.status === 0){//成功
                 //1.跳转到payorder.vue页面
-                this.$router.push({path:'/pay',query:{orderid:response.data.message.orderid}})
+                this.$router.push({path:'/pay',query:{orderid:response.data.message.orderid}})  //确认提交会返回一个orderid
 
                 //2.删除本地的商品信息
                 const idsArray = this.$route.query.ids.split(',')

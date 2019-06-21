@@ -42,8 +42,8 @@ const router = new VueRouter({
         {path:'/shopcart',component:shopcart},
         {path:'/login',component:login},
         /***下面的路由规则，是需要进行登录校验的 ***/
-        {path:'/order',component:order,meta: { checkoutLogin: true }},
-        {path:'/pay',component:payorder,meta: { checkoutLogin: true }},
+        {path:'/order',component:order,meta: { checkoutLogin: true }},  //  checkoutLogin是自定义的可以为任何名称,下面用到
+        {path:'/pay',component:payorder,meta: { checkoutLogin: true }}, //meta为对象
         {path:'/paySuccess',component:paySuccess,meta: { checkoutLogin: true }},
         {path:'/vipCenter',component:vipCenter,meta: { checkoutLogin: true }},
         {path:'/myOrders',component:myOrders,meta: { checkoutLogin: true }},

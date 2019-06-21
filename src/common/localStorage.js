@@ -22,7 +22,7 @@ const getTotalCount = () => {
 
   let totalCount = 0
 
-  for (var key in localGoods) {
+  for (var key in localGoods) { //遍历对象
     totalCount += localGoods[key]
   }
 

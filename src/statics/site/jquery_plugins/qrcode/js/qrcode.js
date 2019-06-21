@@ -59,7 +59,7 @@ n.write(4,e);for(var p=0,q=String.fromCharCode(a[p]),p=p+1;p<a.length;){var r=St
 			minVersion: 6,
 			fill: "#666",
 			background: "#fff",
-			text: "http://www.baidu.com",
+			text: "http://www.baidu.com",  //后台的链接
 			size: 300,
 			radius: .5,
 			quiet: 4,

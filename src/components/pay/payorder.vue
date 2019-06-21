@@ -71,7 +71,7 @@
                             </div>
                             <div class="el-col el-col-6">
                                 <img id="imgLogo" src="../../statics/site/images/alipay.png" hidden>
-                                <!-- <dzh-qrcode :img_url="img_url"></dzh-qrcode> -->
+                                <!-- <dzh-qrcode :img_url="img_url"></dzh-qrcode> -->   <!-- 默认是小猪佩奇修改url更改图片 -->
                                 <div id="container2">
                                     <canvas width="400" height="400"></canvas>
                                 </div>
@@ -85,9 +85,9 @@
 </template>
 
 <script>
-// import DZHQRCode from 'dzh-qrcode'
+// import DZHQRCode from 'dzh-qrcode'   //自动生成二维码的vue插件 借用的jquery22
 
-import '../../statics/site/jquery_plugins/qrcode/js/qrcode.js'
+import '../../statics/site/jquery_plugins/qrcode/js/qrcode.js'  //引入jq22  二维码插件
 
 export default {
   // 局部注册
@@ -101,7 +101,7 @@ export default {
   },
   created() {
     clearInterval(this.timeInterval)
-    // this.img_url = require('../../statics/site/images/alipay.png')
+    // this.img_url = require('../../statics/site/images/alipay.png')   //本地图片需要用require
     this.getOrderInfoData()
     // 开始进入轮询
     this.task()
@@ -109,18 +109,18 @@ export default {
   //   mounted() {
   //     //图片logo
   //     setTimeout(() => {
-  //       // vue解析的时候，在去加载img的时候，如果发现有hidden属性，可能会演示加载
+  //       // vue解析的时候，在去加载img的时候，如果发现有hidden属性，可能会延迟加载   不加定时器可以直接放在updated里面
 
   //     }, 200)
   //   },
   updated() {
-    $('#container2').erweima({
+    $('#container2').erweima({  //初始化jquery二维码插件
       mode: 4,
       mSize: 26,
       image: $('#imgLogo')[0],
       text: `http://47.106.148.205:8899/site/validate/pay/alipay/${
         this.$route.query.orderid
-      }` //自己公司提供的后台接口
+      }` //自己公司提供的后台接口   覆盖默认的百度链接
     })
   },
   methods: {
@@ -142,7 +142,7 @@ export default {
     }
   },
   beforeDestroy() {
-    clearInterval(this.timeInterval)
+    clearInterval(this.timeInterval)   //也可以在跳转之前清除定时器   也可以使用 destroyed
   }
 }
 </script>

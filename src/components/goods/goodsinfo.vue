@@ -231,7 +231,7 @@ export default {
     this.getCommentListData()
   },
   updated() {
-    //放在这里是因为，我们点击了右边的连接之后，要重新图册
+    //放在这里是因为，我们点击了右边的连接之后，要重新注册
     $('#magnifier1').imgzoon({ magnifier: '#magnifier1' })
   },
   watch: {
@@ -332,7 +332,7 @@ export default {
           count:this.buyCount
       }
 
-      this.$store.commit('addGoods',goods)
+      this.$store.commit('addGoods',goods) //向vuex mutations中调用addGoods 提交goods参数
     },
     // 动画相关
     beforeEnter: function(el) {
@@ -349,13 +349,13 @@ export default {
       el.style.transition = 'all 0.5s'
 
       // 刷新动画帧
-      el.offsetHeight
+      el.offsetHeight  //或者  el.offsetWidth
 
       el.style.top = this.shopCartOffset.top - 5 + 'px'
       el.style.left = this.shopCartOffset.left + 'px'
       el.style.transform = 'scale(0.4)'
 
-      //   setTimeout(() => {
+      //   setTimeout(() => { //在最后进去阶段会有延迟
       // ...
       done()
       //   }, 500)

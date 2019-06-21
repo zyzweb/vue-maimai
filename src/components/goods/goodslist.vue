@@ -18,7 +18,7 @@
                                         <i class="iconfont icon-arrow-right"></i>
                                         <span>{{item.title}}</span>
                                         <p>
-                                            <span v-for="subitem in item.subcates" :key="subitem.id">
+                                            <span v-for="subitem in item.subcates" :key="subitem.id">  <!-- 俩层v-for -->
                                                 {{subitem.title}}&nbsp;
                                             </span>
                                         </p>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="txt-box">
                                     <a href="/goods/show-98.html">{{item.title}}</a>
-                                    <span>{{item.add_time | dateFmt}}</span>
+                                    <span>{{item.add_time | dateFmt}}</span>  <!-- 调用全局过滤器 -->
                                 </div>
                             </li>
                         </ul>
@@ -84,7 +84,7 @@
                         <li v-for="subitem in item.datas" :key="subitem.artID">
                             <router-link :to="'/goodsinfo/'+subitem.artID" class="">
                                 <div class="img-box">
-                                    <img v-lazy="subitem.img_url">
+                                    <img v-lazy="subitem.img_url">  <!-- vue懒加载 -->
                                 </div>
                                 <div class="info">
                                     <h3>{{subitem.artTitle}}</h3>
@@ -136,14 +136,14 @@ export default {
       const url = `site/goods/gettopdata/goods`
 
       this.$axios.get(url).then(response => {
-        this.goodsData = response.data.message
+        this.goodsData = response.data.message  //头部数据
       })
     },
     getGoodsListData(){
         const url = `site/goods/getgoodsgroup`
 
         this.$axios.get(url).then(response => {
-        this.goodsList = response.data.message
+        this.goodsList = response.data.message  //商品列表数据
       })
     }
   }

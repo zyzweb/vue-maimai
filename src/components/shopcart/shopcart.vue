@@ -261,7 +261,7 @@ export default {
       this.$axios.get(url).then(response => {
         response.data.message.forEach(item => {
           item.buycount = localGoods[item.id]
-          item.isSelect = true
+          item.isSelect = true  //自己加的属性   不然商品状态同时开关
         })
 
         this.goodsList = response.data.message
@@ -325,11 +325,11 @@ export default {
         return
       }
 
-      // 通过变成是导航，跳转到下单页面
+      // 通过编程式导航，跳转到下单页面
       this.$router.push({
         path: '/order',
         query: {
-          ids: ids.join(',')
+          ids: ids.join(',')   //跳转到另一个页面,没有发送请求
         }
       })
     }
