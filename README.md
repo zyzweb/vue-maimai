@@ -1,4 +1,3 @@
-# szhmqd23_vue
 
 ## Project setup
 ```
