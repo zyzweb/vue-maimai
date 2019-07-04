@@ -48,7 +48,7 @@ Vue.use(VueLazyload,{
 
 // 全局导入样式
 // import 'element-ui/lib/theme-chalk/index.css';
-import "./statics/site/css/style.css"
+import "./statics/site/css/style.css" //预先写好的  包含了iconfont
 // import "./statics/site/less/test.less"
 
 Vue.config.productionTip = false
